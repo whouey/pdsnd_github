@@ -1,17 +1,24 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
-
 ### Date created
-Include the date you created this project and README file.
+> **2023-08-14**
 
-### Project Title
-Replace the Project Title
+### BikeShare_2
 
 ### Description
-Describe what your project is about and what it does
+This project is aiming to load and analyze data of a bikeshare service.
 
 ### Files used
-Include the files used
++ bikeshare_2.py - main file of this project, which includes all code.
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
+Beside the resources provided in the website, those extra resources are referenced.
+And for the convenience, "y" as the abbreviation of "yes" used in the program is also accepted.
+
+While handling datetime, here is the method to check if a column is of type datetime.
+https://stackoverflow.com/a/57187654
+
+And the following official documents are referenced.
+https://docs.python.org/3/library/calendar.html#calendar.month_name
+https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals
+https://pandas.pydata.org/docs/reference/api/pandas.api.types.is_numeric_dtype.html
+https://pandas.pydata.org/docs/reference/api/pandas.api.types.is_datetime64_any_dtype.html

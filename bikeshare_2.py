@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime as dt
 from pandas.api.types import is_numeric_dtype, is_datetime64_any_dtype
-import calendar
+from calendar import day_name, day_abbr, month_name, month_abbr
 
 CITY_DATA = {'chicago': 'chicago.csv',
              'new york city': 'new_york_city.csv',
@@ -39,7 +39,7 @@ def get_filters():
         input_str = input(
             '\nPlease input a month name, or `all` for all month.\n').lower()
 
-        if input_str.capitalize() in ['All', *calendar.month_name[1:], *calendar.month_abbr[1:]]:
+        if input_str.capitalize() in ['All', *month_name[1:], *month_abbr[1:]]:
             month = input_str
         else:
             print('The month name can\'t be recognized, please try again.')
@@ -50,7 +50,7 @@ def get_filters():
         input_str = input(
             '\nPlease input a day name, or `all` for all weekdays.\n').lower()
 
-        if input_str.capitalize() in ['All', *calendar.day_name, *calendar.day_abbr]:
+        if input_str.capitalize() in ['All', *day_name, *day_abbr]:
             day = input_str
         else:
             print('The day name can\'t be recognized, please try again.')
@@ -83,9 +83,9 @@ def load_data(city, month, day):
     # filter by month
     if month != 'all':
         month = month.capitalize()
-        if month in calendar.month_name:
+        if month in month_name:
             month = dt.strptime(month, '%B').month
-        elif month in calendar.month_abbr:
+        elif month in month_abbr:
             month = dt.strptime(month, '%b').month
         else:
             raise ValueError
@@ -96,9 +96,9 @@ def load_data(city, month, day):
     # filter by weekday
     if day != 'all':
         day = day.capitalize()
-        if day in calendar.day_name:
+        if day in day_name:
             day = dt.strptime(day, '%A').weekday()
-        elif day in calendar.day_abbr:
+        elif day in day_abbr:
             day = dt.strptime(day, '%a').weekday()
         else:
             raise ValueError
@@ -119,13 +119,13 @@ def time_stats(df):
 
     # display the most common month
     most_common_month = \
-        calendar.month_name[df['Start Time'].dt.month.mode()[0]]
+        month_name[df['Start Time'].dt.month.mode()[0]]
 
     print(f'The most common month is {most_common_month}')
 
     # display the most common day of week
     most_common_day = \
-        calendar.day_name[df['Start Time'].dt.weekday.mode()[0]]
+        day_name[df['Start Time'].dt.weekday.mode()[0]]
     print(f'The most common day is {most_common_day}')
 
     # display the most common start hour

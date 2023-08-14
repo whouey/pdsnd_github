@@ -2,6 +2,7 @@
 > **2023-08-14**
 
 ### BikeShare_2
+This project is part of **Programming for Data Science with Python Nanodegree** of Udacity
 
 ### Description
 This project is aiming to load and analyze data of a bikeshare service.

@@ -208,6 +208,32 @@ def user_stats(df):
     print('-' * 40)
 
 
+def show_raw_data(df):
+    """Display raw data to user in pages of size 5"""
+    show_raw_data = input('\nWould you like to checkout the raw data? Enter yes or no. (default to no)\n').lower()
+
+    if show_raw_data == 'yes' or show_raw_data == 'y':
+        page = 0
+        while True:
+            df_page = df.iloc[page * 5:(page + 1) * 5, :]
+
+            print(
+                f'Showing the data [{(page * 5) + 1}:{(page + 1) * 5}] out of {df.shape[0]}')
+            print(df_page)
+
+            page += 1
+
+            if page * 5 >= df.shape[0]:
+                print('\nThere is no more data to show.')
+                break
+
+            cont = input(
+                '\nContinue to next page? Enter yes or no. (default to no)\n').lower()
+            if cont != 'yes' and cont != 'y':
+                break
+        print('-' * 40)
+
+
 def main():
     """
     This is the main module of the file, it does:
@@ -228,28 +254,7 @@ def main():
             continue
 
         # show the raw data if requested
-        show_raw_data = input(
-            '\nWould you like to checkout the raw data? Enter yes or no. (default to no)\n').lower()
-        if show_raw_data == 'yes' or show_raw_data == 'y':
-            page = 0
-            while True:
-                df_page = df.iloc[page * 5:(page + 1) * 5, :]
-
-                print(
-                    f'Showing the data [{(page * 5) + 1}:{(page + 1) * 5}] out of {df.shape[0]}')
-                print(df_page)
-
-                page += 1
-
-                if page * 5 >= df.shape[0]:
-                    print('\nThere is no more data to show.')
-                    break
-
-                cont = input(
-                    '\nContinue to next page? Enter yes or no. (default to no)\n').lower()
-                if cont != 'yes' and cont != 'y':
-                    break
-            print('-' * 40)
+        show_raw_data(df)
 
         # do analytics
         try:

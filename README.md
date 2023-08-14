@@ -9,6 +9,11 @@ This project is aiming to load and analyze data of a bikeshare service.
 ### Files used
 + bikeshare_2.py - main file of this project, which includes all code.
 
+and those data files are excluded in this repo:  
++ chicago.csv  
++ new_york_city.csv  
++ washington.csv  
+
 ### Credits
 
 Beside the resources provided in the website, those extra resources are referenced.
